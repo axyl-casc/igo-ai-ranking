@@ -1,0 +1,118 @@
+
+<!-- saved from url=(0032)http://10.0.0.228:5000/igo_table -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                cursor: pointer;
+                background-color: #f2f2f2;
+            }
+        </style>
+        <script>
+function sortTable(n) {
+    const table = document.getElementById("aiTable");
+    let rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
+    switching = true;
+    dir = "asc"; // Set the sorting direction to ascending
+
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+
+        for (i = 1; i < rows.length - 1; i++) {
+            shouldSwitch = false;
+
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+
+            // Get the data-key or innerHTML values and treat as numbers if possible
+            const xKey = x.getAttribute("data-key") ? parseFloat(x.getAttribute("data-key")) : x.innerHTML.toLowerCase();
+            const yKey = y.getAttribute("data-key") ? parseFloat(y.getAttribute("data-key")) : y.innerHTML.toLowerCase();
+
+            if (dir === "asc") {
+                if (xKey > yKey) {
+                    shouldSwitch = true;
+                    break;
+                }
+            } else if (dir === "desc") {
+                if (xKey < yKey) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchCount++;
+        } else {
+            if (switchCount === 0 && dir === "asc") {
+                dir = "desc";
+                switching = true;
+            }
+        }
+    }
+}
+
+        </script>
+    </head>
+    <body data-new-gr-c-s-check-loaded="14.1209.0" data-gr-ext-installed="">
+        <table id="aiTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Path</th>
+                    <th onclick="sortTable(1)">Converted Rank</th>
+                </tr>
+            </thead>
+            <tbody>
+    <tr><td>./baduk_AI/katago/katago.exe gtp -model ./baduk_AI/weak_network.gz -config ./baduk_AI/strong_config.cfg</td><td data-key="1009">2p</td></tr><tr><td>./baduk_AI/katago/katago.exe gtp -model ./baduk_AI/weak_network.gz -config ./baduk_AI/weak_config.cfg</td><td data-key="1007">9d</td></tr><tr><td>./baduk_AI/katago/katago.exe gtp -model ./baduk_AI/basic_network.gz -config ./baduk_AI/weak_config.cfg</td><td data-key="1006">8d</td></tr><tr><td>./baduk_AI/pachi/pachi -t =5000:15000</td><td data-key="1002">4d</td></tr><tr><td>./baduk_AI/pachi/pachi -t =1000</td><td data-key="999">1d</td></tr><tr><td>./baduk_AI/pachi/pachi -t =1000:5000</td><td data-key="998">1k</td></tr><tr><td>./baduk_AI/pachi/pachi -t =500</td><td data-key="995">4k</td></tr><tr><td>./baduk_AI/gnugo/gnugo.exe --mode gtp --level 15</td><td data-key="995">4k</td></tr><tr><td>./baduk_AI/gnugo/gnugo.exe --mode gtp --level 10</td><td data-key="993">6k</td></tr><tr><td>./baduk_AI/gnugo/gnugo.exe --mode gtp --level 8</td><td data-key="991">8k</td></tr><tr><td>./baduk_AI/gnugo/gnugo.exe --mode gtp --level 2</td><td data-key="991">8k</td></tr><tr><td>./baduk_AI/gnugo/gnugo.exe --mode gtp --level 5</td><td data-key="990">9k</td></tr><tr><td>./baduk_AI/gnugo/gnugo.exe --mode gtp --level 1</td><td data-key="987">12k</td></tr><tr><td>./baduk_AI/gnugo/gnugo.exe --mode gtp --level 0</td><td data-key="986">13k</td></tr><tr><td>./baduk_AI/gnugo/gnugo.exe --mode gtp --level 3</td><td data-key="984">15k</td></tr><tr><td>./baduk_AI/katago/katago.exe gtp -model ./baduk_AI/very_weak_network2.gz -config ./baduk_AI/weak_config.cfg</td><td data-key="977">22k</td></tr><tr><td>./baduk_AI/katago/katago.exe gtp -model ./baduk_AI/very_weak_network.gz -config ./baduk_AI/weak_config.cfg</td><td data-key="977">22k</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </tbody>
+        </table>
+    
+    
+    </body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
